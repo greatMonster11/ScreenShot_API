@@ -33,7 +33,7 @@ app.get("/", async (req, res) => {
   await page.goto(url);
   const hostName = new URL(url).hostname;
   const screenshot = await page.screenshot({ path: `image/${hostName}.png` });
-  await browser.close();
+  //await browser.close();
   const ImgUrl = `http://${req.headers.host}/image/${hostName}.png`;
   // res.send(`<img src=${ImgUrl} />`);
   // Create a root reference
@@ -55,13 +55,14 @@ app.get("/", async (req, res) => {
       }
     })
     .then(() => {
-      console.log("Upload ok");
+      const ImgUrl = `https://storage.googleapis.com/uploadimage-cdb0f.appspot.com/screenshot/${hostName}.png`;
+
+      return res.status(200).json({
+        url: hostName,
+        status: "200",
+        image: ImgUrl
+      });
     });
-  return res.status(200).json({
-    url: hostName,
-    status: "200",
-    image: ImgUrl
-  });
 });
 
 app.listen(8080, () => console.log("app running on port 8080"));
