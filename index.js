@@ -27,18 +27,18 @@ var bucket = admin.storage().bucket("gs://uploadimage-cdb0f.appspot.com");
 // router
 app.get(
   "/",
-  limiter({
-    path: "/users",
-    method: "get",
-    lookup: ["connection.remoteAddress"],
-    total: 5,
-    expire: 1000 * 60 * 60,
-    onRateLimited: function(request, response, next) {
-      return response
-        .status(429)
-        .json("You are not welcome here, Rate limit exceeded");
-    }
-  }),
+  // limiter({
+  //   path: "/users",
+  //   method: "get",
+  //   lookup: ["connection.remoteAddress"],
+  //   total: 1000,
+  //   expire: 1000 * 60 * 60,
+  //   onRateLimited: function(request, response, next) {
+  //     return response
+  //       .status(429)
+  //       .json("You are not welcome here, Rate limit exceeded");
+  //   }
+  // }),
   async (req, res) => {
     const width = 1280;
     const height = 600;
