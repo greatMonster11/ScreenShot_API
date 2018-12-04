@@ -15,7 +15,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 const app = express();
-const limiter = require("./middleware/express-limiter")(app, client);
+const limiter = require("express-limit-api")(app, client);
 
 app.use(cors());
 app.use(bodyParser.json());
