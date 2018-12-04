@@ -31,7 +31,7 @@ app.get(
     path: "/users",
     method: "get",
     lookup: ["connection.remoteAddress"],
-    total: 5,
+    total: 1000,
     expire: 1000 * 60 * 60,
     onRateLimited: function(request, response, next) {
       return response
