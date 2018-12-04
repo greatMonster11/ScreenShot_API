@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
   "dependencies": {
     "@google-cloud/storage": "1.6",
     "body-parser": "^1.18.3",
@@ -10,6 +13,7 @@
     "express": "^4.16.4",
     "firebase": "^5.6.0",
     "firebase-admin": "^6.3.0",
-    "puppeteer": "^1.11.0"
+    "puppeteer": "^1.11.0",
+    "redis": "^2.8.0"
   }
 }
